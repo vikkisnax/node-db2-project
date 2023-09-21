@@ -10,5 +10,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        //if you write 2, it'll show red where you need ;
+        "semi":0
     }
 }

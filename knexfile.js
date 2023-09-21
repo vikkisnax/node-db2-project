@@ -1,14 +1,14 @@
 // no need to change this file
 const sharedConfig = {
   client: 'sqlite3',
-  useNullAsDefault: true,
+  useNullAsDefault: true, //for sqlite
   migrations: {
     directory: './data/migrations',
   },
   seeds: {
     directory: './data/seeds',
   },
-  pool: {
+  pool: { //sqlite - if multiple tables. foreign keys - column references id of a recofrd in another table
     afterCreate: (conn, done) => {
       conn.run('PRAGMA foreign_keys = ON', done)
     },
