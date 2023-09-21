@@ -20,13 +20,34 @@ exports.checkCarId = async (req, res, next) => {
 }
 
 exports.checkCarPayload = (req, res, next) => {
-  // DO YOUR MAGIC
+  if (!req.body.vin)
+    return next({ 
+      status: 400,
+      message: 'vin is missing',
+  })
+  if (!req.body.make)
+  return next({ 
+    status: 400,
+    message: 'make is missing',
+  })
+  if (!req.body.model)
+  return next({ 
+    status: 400,
+    message: 'model is missing',
+  })
+  if (!req.body.mileage)
+  return next({ 
+    status: 400,
+    message: 'mileage is missing',
+  })
+  //so we can go to the next mw and eventually to the router
+  next()
 }
 
 exports.checkVinNumberValid = (req, res, next) => {
-  // DO YOUR MAGIC
+  next()
 }
 
 exports.checkVinNumberUnique = (req, res, next) => {
-  // DO YOUR MAGIC
+  next()
 }

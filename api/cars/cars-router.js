@@ -4,6 +4,9 @@ const router = require('express').Router();
 
 const {
     checkCarId,
+    checkCarPayload,
+    checkVinNumberValid,
+    checkVinNumberUnique
 } = require('./cars-middleware')
 
 router.get('/', async (req,res,next)=>{
@@ -20,8 +23,12 @@ router.get('/:id', checkCarId, async (req, res)=>{
     res.json(req.car)
 })
 
-router.post('/', async (req, res, next)=>{
-    res.json('create new car')
+router.post('/', 
+    checkCarPayload,
+    checkVinNumberValid,
+    checkVinNumberUnique,
+    async (req, res, next)=>{
+        res.json('create new car')
 }) 
 
 //error handling mw is in server.js so next(err) will fall back to that 
