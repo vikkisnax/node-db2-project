@@ -10,7 +10,7 @@ const cars = [
     },
     //everything but transmission field
     {
-        vin: '1111111111111',
+        vin: '1111111111112',
         make: 'toyota',
         model: 'corolla',
         mileage: 115000,
@@ -18,7 +18,7 @@ const cars = [
     },
     //made it so only mandatory fields are there 
     {
-        vin: '1111111111111',
+        vin: '1111111111113',
         make: 'ford',
         model: 'focus',
         mileage: 35000,
