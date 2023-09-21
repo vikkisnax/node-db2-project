@@ -28,7 +28,13 @@ router.post('/',
     checkVinNumberValid,
     checkVinNumberUnique,
     async (req, res, next)=>{
-        res.json('create new car')
+        try{
+            const car = await Car.create(req.body);
+            res.json(car)
+        }
+        catch(err){
+            next(err)
+        }
 }) 
 
 //error handling mw is in server.js so next(err) will fall back to that 
